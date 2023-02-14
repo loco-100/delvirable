@@ -13,7 +13,9 @@ import java.util.Collections;
  * once. The group of cards has a maximum size attribute which is flexible for reuse.
  *
  * @author Urvashi
- * @author
+ * @author Karan
+ * @author Shiraz
+ * @author Mannat
  */
 public class GroupOfCards {
 

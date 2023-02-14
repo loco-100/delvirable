@@ -15,7 +15,7 @@ import java.util.Collections;
  * @author Urvashi
  * @author Karan
  * @author Shiraz
- * @author Mannat
+ * @author 
  */
 public class GroupOfCards {
 

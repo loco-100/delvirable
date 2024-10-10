@@ -1,48 +1,43 @@
 /**
  * SYST 17796 Project Base code.
  * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
+ * Author: Rajanpreet Kaur, Jasmine Saini, Anshika Thakral, Nitika Patel
  */
 package ca.sheridancollege.project;
 
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- *
- * @author Urvashi
- */
-public abstract class Player {
+import java.util.ArrayList;
+import java.util.List;
 
-    private String name; //the unique name for this player
+public class Player {
+    private String name;                // Name of the player
+    private List<Card> hand;            // List to hold the player's hand of cards
 
-    /**
-     * A constructor that allows you to set the player's unique ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
+    // Constructor
     public Player(String name) {
         this.name = name;
+        this.hand = new ArrayList<>();
     }
 
-    /**
-     * @return the player name
-     */
+    // Method to play a card from the hand
+    public Card playCard() {
+        if (!hand.isEmpty()) {
+            return hand.remove(hand.size() - 1);  // Play the top card
+        }
+        return null;  // No cards left to play
+    }
+
+    // Method to add a card to the player's hand
+    public void addCard(Card card) {
+        hand.add(card);
+    }
+
+    // Method to get the size of the hand
+    public int getHandSize() {
+        return hand.size();
+    }
+
+    // Getter for player's name
     public String getName() {
         return name;
     }
-
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
-
 }

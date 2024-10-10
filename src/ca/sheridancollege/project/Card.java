@@ -1,25 +1,33 @@
 /**
  * SYST 17796 Project Base code.
- * @author Urvashi
- * 09-02-2023
+ * @author Rajanpreet Kaur
+ * 09-10-2024
  */
 package ca.sheridancollege.project;
 
-/**
- * A class to be used as the base Card class for the project. Must be general enough to be instantiated for any Card
- * game. Students wishing to add to the code should remember to add themselves as a modifier.
- *
- * @author Urvashi
- */
-public abstract class Card {
-    //default modifier for child classes
+public class Card {
+    private String rank;  // Rank of the card
+    private String suit;  // Suit of the card
 
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
+    // Constructor
+    public Card(String rank, String suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
+
+    // Getter for rank
+    public String getRank() {
+        return rank;
+    }
+
+    // Getter for suit
+    public String getSuit() {
+        return suit;
+    }
+
+    // Method to return a string representation of the card
     @Override
-    public abstract String toString();
-
+    public String toString() {
+        return rank + " of " + suit;
+    }
 }

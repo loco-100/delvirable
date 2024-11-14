@@ -6,26 +6,24 @@
 package ca.sheridancollege.project;
 
 public class Card {
-    private String rank;  // Rank of the card
-    private String suit;  // Suit of the card
+    // Define the properties of a Card, e.g., suit and rank
+    private String suit;
+    private String rank;
 
-    // Constructor
-    public Card(String rank, String suit) {
-        this.rank = rank;
+    public Card(String suit, String rank) {
         this.suit = suit;
+        this.rank = rank;
     }
 
-    // Getter for rank
-    public String getRank() {
-        return rank;
-    }
-
-    // Getter for suit
+    // Getters for suit and rank
     public String getSuit() {
         return suit;
     }
 
-    // Method to return a string representation of the card
+    public String getRank() {
+        return rank;
+    }
+
     @Override
     public String toString() {
         return rank + " of " + suit;

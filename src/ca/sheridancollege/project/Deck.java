@@ -1,8 +1,8 @@
-/**
+ /**
  * SYST 17796 Project Base code.
  * Students can modify and extend to implement their game.
  * Author: Rajanpreet Kaur
- * Date: 2024-10-09
+ * Date: 2024-11-14
  */
 package ca.sheridancollege.project;
 
@@ -49,4 +49,3 @@ public class Deck {
         return cards;  // Return the list of cards
     }
 }
-

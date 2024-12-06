@@ -1,13 +1,43 @@
 package ca.sheridancollege.project;
 
-public class WarPlayer extends Player {
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class WarPlayer {
+    private String name;
+    private Queue<Card> hand;
+
     public WarPlayer(String name) {
-        super(name);
+        this.name = name;
+        this.hand = new LinkedList<>();
     }
 
-    @Override
-    public void play() {
-        // Player-specific actions during the game
-        System.out.println(getName() + " is playing.");
+    public String getName() {
+        return name;
+    }
+
+    public void addCard(Card card) {
+        hand.offer(card);
+    }
+
+    public Card playCard() {
+        return hand.poll();
+    }
+
+    public int getHandSize() {
+        return hand.size();
+    }
+
+    public void addCards(Queue<Card> cards) {
+        hand.addAll(cards);
+    }
+
+    public boolean hasCards() {
+        return !hand.isEmpty();
     }
 }
+
+
+
+    

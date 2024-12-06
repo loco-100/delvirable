@@ -1,49 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- You may freely edit this file. See commented blocks below for -->
-<!-- some examples of how to customize the build. -->
-<!-- (If you delete it and reopen the project it will be recreated.) -->
-<!-- By default, only the Clean and Build commands use this build script. -->
-<!-- Commands such as Run, Debug, and Test only use this build script if -->
-<!-- the Compile on Save feature is turned off for the project. -->
-<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
-<!-- in the project's Project Properties dialog box.-->
-
-<project name="War_card_game" default="run">
-
+<project name="WarCardGame" default="run" basedir=".">
+    <!-- Directories -->
     <property name="src.dir" value="src"/>
     <property name="build.dir" value="build"/>
     <property name="dist.dir" value="dist"/>
-    <property name="main.class" value="ca.sheridancollege.project.Game"/> <!-- Fully qualified main class name -->
+    <property name="dist.jar" value="${dist.dir}/WarCardGame.jar"/>
 
+    <!-- Define Classpath -->
+    <path id="run.classpath">
+        <pathelement path="${build.dir}"/>
+    </path>
+
+    <!-- Clean Target -->
     <target name="clean">
         <delete dir="${build.dir}"/>
         <delete dir="${dist.dir}"/>
     </target>
 
+    <!-- Compile Target -->
     <target name="compile">
         <mkdir dir="${build.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false">
+        <javac srcdir="${src.dir}" destdir="${build.dir}">
             <classpath>
-                <!-- You can add any necessary classpath elements here -->
+                <path refid="run.classpath"/>
             </classpath>
         </javac>
     </target>
 
+    <!-- Create JAR -->
     <target name="jar" depends="compile">
         <mkdir dir="${dist.dir}"/>
-        <jar destfile="${dist.dir}/WarCardGame.jar" basedir="${build.dir}">
+        <jar destfile="${dist.jar}" basedir="${build.dir}">
             <manifest>
-                <attribute name="Main-Class" value="${main.class}"/> <!-- Specify the main class here -->
+                <!-- Update this line to reflect the package path of your Main class -->
+                <attribute name="Main-Class" value="ca.sheridancollege.project.Main"/> <!-- Change "com.example" to your actual package -->
             </manifest>
         </jar>
     </target>
 
+    <!-- Run Target -->
     <target name="run" depends="jar">
-        <java classname="${main.class}" fork="true">
-            <classpath>
-                <pathelement path="${build.dir}"/>
-                <pathelement path="${dist.dir}/WarCardGame.jar"/>
-            </classpath>
-        </java>
+        <java jar="${dist.jar}" fork="true"/>
     </target>
 </project>

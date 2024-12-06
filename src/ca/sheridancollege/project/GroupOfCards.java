@@ -1,19 +1,16 @@
- /**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Author: Rajanpreet Kaur
- * Date: 2024-11-14
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ca.sheridancollege.project;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Deck {
+public class GroupOfCards {
     private List<Card> cards;
 
-    public Deck() {
+    public GroupOfCards() {
         cards = new ArrayList<>();
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
@@ -23,7 +20,6 @@ public class Deck {
                 cards.add(new Card(rank, suit));
             }
         }
-        shuffle();
     }
 
     public void shuffle() {
@@ -34,5 +30,9 @@ public class Deck {
         List<Card> halfDeck = new ArrayList<>(cards.subList(0, cards.size() / 2));
         cards.subList(0, cards.size() / 2).clear();
         return halfDeck;
+    }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
     }
 }

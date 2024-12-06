@@ -5,23 +5,40 @@
  * Date: 2024-11-14
  */
 package ca.sheridancollege.project;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class Player {
+    private String name;
+    private Queue<Card> hand;
 
-    private final String name; // the unique name for this player
-
-    // Constructor to set the player's unique ID
     public Player(String name) {
         this.name = name;
+        this.hand = new LinkedList<>();
     }
 
-    // Getter for player name
     public String getName() {
         return name;
     }
 
-    // Method to play the game 
-    public void play() {
-        System.out.println(name + " is playing their turn.");
+    public void addCard(Card card) {
+        hand.offer(card);
     }
-}   
+
+    public Card playCard() {
+        return hand.poll();
+    }
+
+    public int getHandSize() {
+        return hand.size();
+    }
+
+    public void addCards(List<Card> cards) {
+        hand.addAll(cards);
+    }
+
+    public boolean hasCards() {
+        return !hand.isEmpty();
+    }
+}
